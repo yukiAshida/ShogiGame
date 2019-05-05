@@ -1,0 +1,109 @@
+// 全体の位置設定
+#Container{
+    position: relative;
+}
+
+// 画像設定
+img{
+    width: 61px;
+    height: 75px;
+}
+
+$h_piece: 80px;
+$w_piece: 70px;
+$line_width: 2px;
+
+#battle_field{
+    
+    display: flex;
+
+    #left_table{
+        background-color: #FFFFAA;
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: $w_piece;
+        height: $h_piece;
+        margin-right: 50px;
+    }
+
+    #main_table{
+        background-color: #FFFFAA;
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: $w_piece*9;
+    
+        tr{
+    
+            td{
+                width: $w_piece;
+                height: $h_piece;
+                border: solid $line_width rgba(200,30,30,0.5);
+                cursor: pointer;
+            }
+    
+            td:hover{
+                background-color: #d4f0fd;
+            }
+        }
+    }
+
+    #right_table{
+        background-color: #FFFFAA;
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: $w_piece;
+        height: $h_piece;
+        margin-top: $h_piece + $line_width*2;
+        margin-left: 50px;
+    }
+
+}
+
+.empty{
+    width: $w_piece;
+    height: $h_piece + $line_width*2;
+}
+
+
+$message_width: 400px;
+$message_height: 150px;
+$message_left: ($w_piece*9 - $message_width)/2;
+$message_top: ($h_piece*9 - $message_height)/2;
+
+#message_containor{
+
+    position: absolute;
+    z-index: 10;
+    left: $message-left;
+    top: $message-top;
+    width: $message_width;
+    height: $message_height;
+    
+    background-color: rgba(200,200,200,0.8);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    #question{
+        font-size: 30px;
+        font-weight: bold;
+        align-self: center;
+    }
+
+    #buttons{
+        
+        display: flex;
+        justify-content: space-around;
+
+        #yes{
+            width: $message_width*0.4;
+            height: $message_height*0.4;
+        }
+
+        #no{
+            width: $message_width*0.4;
+            height: $message_height*0.4;
+        }
+    }
+}
